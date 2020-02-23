@@ -12,6 +12,7 @@ void print(int* p, int n) {
 }
 
 int main() {
+	// тестовый комментарий
 	int n;
 	ifstream inf;
 	inf.open("input.txt");
