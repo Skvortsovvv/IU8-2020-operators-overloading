@@ -1,19 +1,19 @@
 #include "Vector.h"
 #include <iostream>
 #include <fstream>
-Vector::Vector() // Пустоой конструктор
+Vector::Vector() // РџСѓСЃС‚РѕР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 {
 	n = 0;
 	p = nullptr;
 }
 
 
-Vector::~Vector() // Диструктор
+Vector::~Vector() // Р”РёСЃС‚СЂСѓРєС‚РѕСЂ
 {
 	if (p != nullptr) delete[]p;
 }
 
-Vector::Vector(int* p, int n) // Конструктор
+Vector::Vector(int* p, int n) // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 {
 	this->n = n;
 	this->p = new int[n];
@@ -22,7 +22,7 @@ Vector::Vector(int* p, int n) // Конструктор
 	}
 }
 
-Vector::Vector(const Vector& V) //Копирование
+Vector::Vector(const Vector& V) //РљРѕРїРёСЂРѕРІР°РЅРёРµ
 {
 	n = V.n;
 	p = new int[n];
@@ -31,7 +31,7 @@ Vector::Vector(const Vector& V) //Копирование
 	}
 }
 
-Vector::Vector(Vector&& V) //Перемещение
+Vector::Vector(Vector&& V) //РџРµСЂРµРјРµС‰РµРЅРёРµ
 {
 	n = V.n;
 	p = V.p;
@@ -39,12 +39,12 @@ Vector::Vector(Vector&& V) //Перемещение
 	V.p = nullptr;
 }
 
-int& Vector::operator[](int index) // Обращение по индексу
+int& Vector::operator[](int index) // РћР±СЂР°С‰РµРЅРёРµ РїРѕ РёРЅРґРµРєСЃСѓ
 {
 	return p[index];
 }
 
-Vector& Vector::operator=(Vector&& V) //Копирование(Присваивание)
+Vector& Vector::operator=(Vector&& V) //РљРѕРїРёСЂРѕРІР°РЅРёРµ(РџСЂРёСЃРІР°РёРІР°РЅРёРµ)
 {
 	n = V.n;
 	p = new int[n];
@@ -66,7 +66,7 @@ Vector& operator^(int* p, Vector& V) { //  XOR
 	return *pV;
 }
 
-std::ostream& operator<<(ostream& out, Vector& V) // Печать
+std::ostream& operator<<(ostream& out, Vector& V) // РџРµС‡Р°С‚СЊ
 {
 	if (V.p == nullptr) {
 		cout << "Vector is empty" << endl;
@@ -81,7 +81,7 @@ std::ostream& operator<<(ostream& out, Vector& V) // Печать
 	return out;
 }
 
-std::istream& operator>>(istream& in, Vector& V) // Запись
+std::istream& operator>>(istream& in, Vector& V) // Р—Р°РїРёСЃСЊ
 {
 	int m;
 	in >> m;
@@ -93,7 +93,7 @@ std::istream& operator>>(istream& in, Vector& V) // Запись
 	return in;
 }
 
-std::ofstream& operator<<(ofstream& out, Vector& V) // Запись в файл
+std::ofstream& operator<<(ofstream& out, Vector& V) // Р—Р°РїРёСЃСЊ РІ С„Р°Р№Р»
 {
 	out << " The result: ";
 	for (int i = 0; i < V.n; i++) {
@@ -103,7 +103,7 @@ std::ofstream& operator<<(ofstream& out, Vector& V) // Запись в файл
 }
 
 
-std::ifstream& operator>>(ifstream& in, Vector& V) // Чтение из файла
+std::ifstream& operator>>(ifstream& in, Vector& V) // Р§С‚РµРЅРёРµ РёР· С„Р°Р№Р»Р°
 {
 	in >> V.n;
 	V.p = new int[V.n];
